@@ -26,7 +26,7 @@ Utterly baffling... hopefully this script helps others deal with the issue.
 
 2. Download or copy `jellyfin_refresh.py` to the server
 
-       wget https://raw.githubusercontent.com/xenago/jellyfin_refresh/master/jellyfin_refresh.py
+       wget https://raw.githubusercontent.com/xenago/jellyfin_refresh/main/jellyfin_refresh.py
 
 3. Run the script, replacing the address and API key with your own (ensure that the running user account can access the folders):
 
