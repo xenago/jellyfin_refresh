@@ -16,7 +16,7 @@ Obviously, this is a significant problem; SMB, NFS, or CephFS are typically used
 
 * Python 3
 * Jellyfin server API key, generated in the Jellyfin Web UI at `/web/#!/apikeys.html`
-* Tested with Jellyfin on Debian/Ubuntu; expected to work on other systems as well
+* Tested with Jellyfin 10.8.x on Debian/Ubuntu; expected to work on other systems as well
 
 ## Usage
 
