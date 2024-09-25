@@ -6,13 +6,11 @@ Using the API, it requests a list of library mountpoints and checks to ensure th
 
 ## Background
 
-Jellyfin has a major deficiency that has been left unresolved for many years: if *any* library content is temporarily unavailable during a library refresh/scan, then the corresponding Jellyfin metadata/database content will be removed!
+Jellyfin versions [prior to 10.9](https://github.com/jellyfin/jellyfin/issues/1714#issuecomment-2362798558) have a major deficiency: if an entire library's content is temporarily unavailable during a library refresh/scan, then the corresponding Jellyfin metadata/database content will be removed!
 
-Obviously, this is a significant problem; most users employ remote storage systems such as a NAS or CephFS to logically separate their bulk storage from their media server. If any of these are temporarily unavailable due to e.g. a network problem, then data loss within Jellyfin is likely if a scan occurs. The same applies for any storage, e.g. if a USB disk is removed or an rclone mount fails during a scan, data loss will happen. Backups are great, but why should the system have to be taken down to restore the entire metadata database if a drive is temporarily offline?
+Even with versions 10.9+, the behavior is still insufficient to fully resolve the issue. Until a proper "recycle bin" function is added, this script may be helpful.
 
-Many [people have pointed this out](https://features.jellyfin.org/posts/399/dont-remove-missing-media-during-library-scan), but no action has been taken on this problem as [the developers do not see it as a critical issue, for some inexplicable reason](https://github.com/jellyfin/jellyfin/issues/1714#issuecomment-1328110567)! Some PRs and suggestions have been made, yet so far there has been no noticeable progress.
-
-Utterly baffling... hopefully this script helps others deal with the issue.
+Obviously, this is a significant problem; SMB, NFS, or CephFS are typically used to logically separate bulk storage from the media server. If any of these are temporarily unavailable due to e.g. a network problem, then data loss within Jellyfin is likely if a scan occurs. The same applies for any storage, e.g. if a USB disk is removed or an rclone mount fails during a scan, data loss will happen. Backups are great, but why should the system have to be taken down to restore the entire metadata database if part of a library goes offline?
 
 ## Requirements
 
